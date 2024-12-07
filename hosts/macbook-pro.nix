@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
@@ -15,6 +15,11 @@
   };
 
   environment.systemPackages = [];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+  ];
 
   security.pam.enableSudoTouchIdAuth = true;
 
