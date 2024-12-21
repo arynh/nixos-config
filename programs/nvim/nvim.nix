@@ -7,7 +7,9 @@
       # LazyVim
       lua-language-server
       stylua
-      # Telescope
+      # fzf-lua stuff
+      fd
+      fzf
       ripgrep
       # some dependencies install through cargo
       cargo
