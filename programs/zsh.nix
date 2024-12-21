@@ -12,6 +12,9 @@
     initExtra = ''
       # run ls after entering a new directory
       function chpwd() { emulate -L zsh; eza }
+
+      # set up fzf key bindings and fuzzy completion
+      source <(fzf --zsh)
     '';
 
     oh-my-zsh = {

@@ -75,6 +75,7 @@
       eza
       alejandra
       bottom
+      fzf
     ];
   };
 }
