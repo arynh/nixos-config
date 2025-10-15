@@ -9,7 +9,7 @@
       v = "nvim";
     };
 
-    initExtra = ''
+    initContent = ''
       # run ls after entering a new directory
       function chpwd() { emulate -L zsh; eza }
 

@@ -20,7 +20,7 @@
     home-manager,
   }: {
     # configuration for mac using nix-darwin
-    # to switch, run `darwin-rebuild switch --flake /path/to/this/flake`
+    # to switch, run `sudo darwin-rebuild switch --flake /path/to/this/flake`
     darwinConfigurations."magical-computer" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
@@ -31,10 +31,11 @@
 
     # configuration for a linux machine using just home-manager
     # to switch, run `home-manager switch --flake /path/to/this/flake`
-    # I don't have a linux machine right now, but this is where it would go
-    # homeConfigurations."hostname" = home-manager.lib.homeManagerConfiguration {
-    #   pkgs = import nixpkgs { system = "x86_64-linux"; };
-    #   modules = [];
-    # };
+    homeConfigurations."aryn" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {system = "x86_64-linux";};
+      modules = [
+        ./hosts/wsl-desktop.nix
+      ];
+    };
   };
 }

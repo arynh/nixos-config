@@ -7,7 +7,7 @@
         owner = "catppuccin";
         repo = "bat";
         rev = "refs/heads/main";
-        sha256 = "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=";
+        sha256 = "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=";
       };
       file = "themes/Catppuccin Macchiato.tmTheme";
     };
