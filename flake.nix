@@ -11,6 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -18,6 +22,7 @@
     nix-darwin,
     nixpkgs,
     home-manager,
+    sops-nix,
   }: {
     # configuration for mac using nix-darwin
     # to switch, run `sudo darwin-rebuild switch --flake /path/to/this/flake`
@@ -26,6 +31,7 @@
       modules = [
         home-manager.darwinModules.home-manager
         ./hosts/macbook-pro.nix
+        sops-nix.darwinModules.sops
       ];
     };
 

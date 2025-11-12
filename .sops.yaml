@@ -1,0 +1,9 @@
+keys:
+  - &aryn age1tlqjcnshux6f3g0uvx47zj9nc470jphnrlhll3vmz762wadszpnq628lfc
+  - &laptop age1spe90vghhlxl5ahu294d2w4mmgszy6szhz2kmls2aey0ugmgva2qap0qds
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *aryn
+          - *laptop
