@@ -15,6 +15,14 @@
 
       # set up fzf key bindings and fuzzy completion
       source <(fzf --zsh)
+
+      function join_path {
+        local IFS=":"
+        export PATH=$PATH:"$*"
+      }
+
+      join_path \
+        /usr/local/texlive/2024/bin/universal-darwin
     '';
 
     oh-my-zsh = {

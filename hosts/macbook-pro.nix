@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  # Make sure the nix daemon always runs
-  services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -14,6 +12,8 @@
     home = "/Users/aryn";
   };
 
+  system.primaryUser = "aryn";
+
   environment.systemPackages = [];
 
   fonts.packages = with pkgs; [
@@ -21,7 +21,7 @@
     nerd-fonts.hack
   ];
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   homebrew = {
     enable = true;
@@ -38,13 +38,14 @@
       "audacity"
       "discord"
       "firefox"
-      "flux"
-      "handbrake"
+      "flux-app"
+      "handbrake-app"
+      "inkscape"
       "mos"
       "rectangle"
       "spotify"
       "vscodium"
-      "zen-browser"
+      "zen"
     ];
   };
 
