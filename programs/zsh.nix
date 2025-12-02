@@ -1,12 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zsh = {
     enable = true;
 
     shellAliases = {
       cat = "bat";
       ls = "eza";
-      vim = "nvim";
       v = "nvim";
+      vf = "nvim $(fzf)";
     };
 
     initContent = ''
@@ -28,7 +29,10 @@
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = ["git" "timer"];
+      plugins = [
+        "git"
+        "timer"
+      ];
     };
 
     plugins = [

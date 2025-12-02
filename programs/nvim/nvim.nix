@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -13,6 +14,8 @@
       ripgrep
       # some dependencies install through cargo
       cargo
+      # nix stuff
+      statix
     ];
 
     plugins = with pkgs.vimPlugins; [

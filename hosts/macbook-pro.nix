@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -14,7 +15,7 @@
 
   system.primaryUser = "aryn";
 
-  environment.systemPackages = [];
+  environment.systemPackages = [ ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -30,8 +31,8 @@
     # so update brew stuff on activation
     onActivation.upgrade = true;
     onActivation.autoUpdate = true;
-    taps = [];
-    brews = [];
+    taps = [ ];
+    brews = [ ];
     casks = [
       "alacritty"
       "arc"
@@ -52,35 +53,37 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.verbose = true;
-  home-manager.users.aryn = {pkgs, ...}: {
-    # this is internal compatibility configuration
-    # for home-manager, don't change this!
-    home.stateVersion = "24.05";
-    # Let home-manager install and manage itself.
-    programs.home-manager.enable = true;
+  home-manager.users.aryn =
+    { pkgs, ... }:
+    {
+      # this is internal compatibility configuration
+      # for home-manager, don't change this!
+      home.stateVersion = "24.05";
+      # Let home-manager install and manage itself.
+      programs.home-manager.enable = true;
 
-    imports = [
-      ../programs/alacritty/alacritty.nix
-      ../programs/nvim/nvim.nix
-      ../programs/zsh.nix
-      ../programs/bat.nix
-      ../programs/git.nix
-      ../programs/tmux.nix
-      ../programs/ssh.nix
-    ];
+      imports = [
+        ../programs/alacritty/alacritty.nix
+        ../programs/nvim/nvim.nix
+        ../programs/zsh.nix
+        ../programs/bat.nix
+        ../programs/git.nix
+        ../programs/tmux.nix
+        ../programs/ssh.nix
+      ];
 
-    home.packages = with pkgs; [
-      cargo
-      python3
-      nodejs
-      eza
-      alejandra
-      bottom
-      fzf
-      sops
-    ];
-  };
+      home.packages = with pkgs; [
+        cargo
+        python3
+        nodejs
+        eza
+        alejandra
+        bottom
+        fzf
+        sops
+      ];
+    };
 
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   sops.defaultSopsFile = ../secrets/secrets.yaml;
 }

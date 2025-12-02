@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.username = "aryn";
   home.homeDirectory = "/home/aryn";
 
@@ -35,9 +36,9 @@
     ripgrep
   ];
 
-  home.file = {};
+  home.file = { };
 
-  home.sessionVariables = {};
+  home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
